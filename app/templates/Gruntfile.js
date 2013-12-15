@@ -259,10 +259,10 @@ module.exports = function (grunt) {
             server: [
                 'copy:styles'
             ],
-            test: 
+            test: [
                 'copy:styles'
             ],
-            dist: 
+            dist: [
                 'copy:styles',
                 'imagemin',
                 'svgmin',
@@ -294,9 +294,9 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'autoprefixer',
-        'connect:test',<% if (testFramework === 'mocha') { %>
-        'mocha'<% } else if (testFramework === 'jasmine') { %>
-        'jasmine'<% } %>
+        'connect:test'<% if (testFramework === 'mocha') { %>
+        ,'mocha'<% } else if (testFramework === 'jasmine') { %>
+        ,'jasmine'<% } %>
     ]);
 
     grunt.registerTask('build', [
